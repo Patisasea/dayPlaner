@@ -33,16 +33,13 @@ function saveData() {
 
 for (var i = 0; i < time; i++) {
     console.log(i);
-    if (i == time) {
-        block[i].classList.add("present");
-        block[i].classList.remove("future");
+    if (i = Math.floor(time)) {
+        console.log(Math.floor(time))
+        $(block[i]).removeClass("future");
+        $(block[i]).addClass("present");
     }
-    else if (i < 9) {
-
-    }
-    else {
-        console.log(block[i])
-        block[i].classList.add("past");
-        block[i].classList.remove("future")
+    if (i > 9) {
+        $(block[i]).removeClass("future");
+        $(block[i]).addClass("past");
     }
 }
