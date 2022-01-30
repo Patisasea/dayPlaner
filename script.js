@@ -1,35 +1,48 @@
-var time = getHours();
-var hour9 = 9;
-var hour10 = 10;
-var hour11 = 11;
-var hour12 = 12;
-var hour13 = 13;
-var hour14 = 14;
-var hour15 = 15;
-var hour16 = 16;
-var hour17 = 17;
-var block1 = document.querySelector("#9");
-var block2 = document.getElementsByClassName("10");
-var block3 = document.getElementsByClassName("11");
-var block4 = document.getElementsByClassName("12");
-var block5 = document.getElementsByClassName("1");
-var block6 = document.getElementsByClassName("2");
-var block7 = document.getElementsByClassName("3");
-var block8 = document.getElementsByClassName("4");
-var block9 = document.getElementsByClassName("5");
-block1 = localStorage.getItem('block1');
-block2 = localStorage.getItem('block2');
-block3 = localStorage.getItem('block3');
-block4 = localStorage.getItem('block4');
-block5 = localStorage.getItem('block5');
-block6 = localStorage.getItem('block6');
-block7 = localStorage.getItem('block7');
-block8 = localStorage.getItem('block8');
-block9 = localStorage.getItem('block9');
-var saveBtn = document.getElementsByClassName("saveBtn");
+const d = new Date();
+var time = d.getHours();
+var block = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+block[9] = document.getElementsByClassName("9");
+block[10] = document.getElementsByClassName("10");
+block[11] = document.getElementsByClassName("11");
+block[12] = document.getElementsByClassName("12");
+block[13] = document.getElementsByClassName("1");
+block[14] = document.getElementsByClassName("2");
+block[15] = document.getElementsByClassName("3");
+block[16] = document.getElementsByClassName("4");
+block[17] = document.getElementsByClassName("5");
+block[9].innerHTML = localStorage.getItem("block9");
+block[10].innerHTML = localStorage.getItem("block10");
+block[11].innerHTML = localStorage.getItem("block11");
+block[12].innerHTML = localStorage.getItem("block12");
+block[13].innerHTML = localStorage.getItem("block13");
+block[14].innerHTML = localStorage.getItem("block14");
+block[15].innerHTML = localStorage.getItem("block15");
+block[16].innerHTML = localStorage.getItem("block16");
+block[17].innerHTML = localStorage.getItem("block17");
 
-saveBtn.addEventListener("click", saveData());
 
-function saveData(){
-    localStorage.setItem('block1', block1);
+for (var i = 1; i < 10; i++) {
+    $("." + i).click(saveData());
+}
+function saveData() {
+    console.log(block)
+    localStorage.setItem("block9", block[9].innerHTML);
+}
+
+
+
+for (var i = 0; i < time; i++) {
+    console.log(i);
+    if (i == time) {
+        block[i].classList.add("present");
+        block[i].classList.remove("future");
+    }
+    else if (i < 9) {
+
+    }
+    else {
+        console.log(block[i])
+        block[i].classList.add("past");
+        block[i].classList.remove("future")
+    }
 }
